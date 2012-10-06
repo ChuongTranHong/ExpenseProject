@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DXWindowsApplication2.util;
 using DXWindowsApplication2.view;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
@@ -22,23 +23,16 @@ namespace DXWindowsApplication2.Controller
         }
         private void LoadFieldDropDown()
         {
-            ComboBoxEdit dropDown = _expenseView.FieldDropDown;
-            ComboBoxItemCollection dropDownCollection = dropDown.Properties.Items;
+            var dropDown = _expenseView.FieldDropDown;
+            var dropDownCollection = dropDown.Properties.Items;
             dropDownCollection.BeginUpdate();
-            try
+            var fieds = XmlUtil.ReadFromFile("Setting/DefaultSetting.xml", "Fields");
+            foreach (var fied in fieds)
             {
-                dropDownCollection.Add("Food and Drink");
-                dropDownCollection.Add("Clothes");
-                dropDownCollection.Add("Utilities");
-                dropDownCollection.Add("Entertainment");
-                dropDownCollection.Add("Home/Rent");
-                dropDownCollection.Add("Misc");
+                dropDownCollection.Add(fied);
+            }
+            dropDownCollection.EndUpdate();
 
-            }
-            finally
-            {
-                dropDownCollection.EndUpdate();
-            }
         }
        
     }

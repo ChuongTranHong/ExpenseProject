@@ -84,6 +84,7 @@
     <Compile Include="Model\Expense.cs" />
     <Compile Include="util\JsonConverter.cs" />
     <Compile Include="util\Environment.cs" />
+    <Compile Include="util\XmlUtil.cs" />
     <Compile Include="view\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +126,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Setting\DefaultSetting.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -143,7 +147,11 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Setting\DefaultSetting.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

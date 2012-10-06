@@ -47,12 +47,18 @@
     <Compile Include="Controller\ExcelController.cs" />
     <Compile Include="util\JsonConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="util\XmlUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DXWindowsApplication2\DXWindowsApplication2.csproj">
       <Project>{A083024F-6972-44BA-A03A-FC96D25EC77D}</Project>
       <Name>DXWindowsApplication2</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Setting\Default.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
