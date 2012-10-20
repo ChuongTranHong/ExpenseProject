@@ -5,11 +5,11 @@ namespace DXWindowsApplication2.Model
     
     public class Expense
     {
-        private readonly DateTime _time;
-        private readonly string _field;
-        private readonly string _description;
-        private readonly double _value;
-        private readonly bool _isExpense;
+        private  DateTime _time;
+        private  string _field;
+        private  string _description;
+        private  double _value;
+        private  bool _isExpense;
 
         
         public Expense(string field,string description, double value, Boolean isExpense ,DateTime time)
@@ -25,26 +25,31 @@ namespace DXWindowsApplication2.Model
         public string Description
         {
             get { return _description; }
+            set { _description = value; }
         }
 
         public DateTime Time
         {
             get { return _time; }
+            set { _time = value; }
         }
 
         public bool IsExpense
         {
             get { return _isExpense; }
+            set { _isExpense = value; }
         }
 
         public double Value
         {
             get { return _value; }
+            set { _value = value; }
         }
 
         public string Field
         {
             get { return _field; }
+            set { _field = value; }
         }
         
         public override string ToString()

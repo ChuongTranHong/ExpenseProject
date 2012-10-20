@@ -22,7 +22,7 @@ namespace DXWindowsApplication2
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("Office 2010 Blue");
             var mainController = new MainPageController();
-            Form1 mainForm = new Form1(mainController);
+            MainPageView mainForm = new MainPageView(mainController);
             Application.Run(mainForm);
         }
     }

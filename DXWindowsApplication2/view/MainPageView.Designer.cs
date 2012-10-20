@@ -1,6 +1,6 @@
 ﻿namespace DXWindowsApplication2.view
 {
-    partial class Form1
+    partial class MainPageView
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPageView));
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.mailGroup = new DevExpress.XtraNavBar.NavBarGroup();
@@ -216,11 +216,19 @@
             // gridControl
             // 
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl.EmbeddedNavigator.AccessibleRole = System.Windows.Forms.AccessibleRole.None; 
+            this.gridControl.EmbeddedNavigator.Buttons.Append.Enabled = false;
+            this.gridControl.EmbeddedNavigator.Buttons.Append.Visible = false;
+            this.gridControl.EmbeddedNavigator.Buttons.CancelEdit.Enabled = false;
+            this.gridControl.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+            this.gridControl.EmbeddedNavigator.Buttons.EndEdit.Enabled = false;
+            this.gridControl.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
             this.gridControl.Location = new System.Drawing.Point(0, 0);
             this.gridControl.MainView = this.gridView1;
             this.gridControl.Name = "gridControl";
             this.gridControl.Size = new System.Drawing.Size(768, 369);
             this.gridControl.TabIndex = 0;
+            this.gridControl.UseEmbeddedNavigator = true;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -229,6 +237,7 @@
             this.gridView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.gridView1.GridControl = this.gridControl;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             // 
             // ribbonControl
             // 
@@ -325,7 +334,6 @@
             this.iNew.ImageIndex = 0;
             this.iNew.LargeImageIndex = 0;
             this.iNew.Name = "iNew";
-            
             // 
             // iOpen
             // 
@@ -629,7 +637,7 @@
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
             this.ribbonStatusBar.Size = new System.Drawing.Size(950, 27);
             // 
-            // Form1
+            // MainPageView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -640,7 +648,7 @@
             this.Controls.Add(this.popupControlContainer2);
             this.Controls.Add(this.ribbonStatusBar);
             this.LookAndFeel.SkinName = "Office 2010 Blue";
-            this.Name = "Form1";
+            this.Name = "MainPageView";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
             this.splitContainerControl.ResumeLayout(false);
@@ -714,6 +722,6 @@
         private System.Windows.Forms.ImageList navbarImageListLarge;
         private DevExpress.XtraGrid.GridControl gridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-
+       
     }
 }

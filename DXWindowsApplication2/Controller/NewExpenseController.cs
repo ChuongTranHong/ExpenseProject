@@ -11,7 +11,7 @@ namespace DXWindowsApplication2.Controller
 {
     class NewExpenseController:IController
     {
-        private NewExpense _expenseView;
+        private NewExpenseView _expenseView;
         public void OnLoad()
         {
             LoadFieldDropDown();
@@ -19,7 +19,7 @@ namespace DXWindowsApplication2.Controller
 
         public void SetView(XtraForm view)
         {
-            _expenseView = (NewExpense)view;
+            _expenseView = (NewExpenseView)view;
         }
         private void LoadFieldDropDown()
         {

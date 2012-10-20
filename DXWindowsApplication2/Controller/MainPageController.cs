@@ -13,14 +13,13 @@ namespace DXWindowsApplication2.Controller
 {
     class MainPageController:IController
     {
-        private Form1 _form;
-        private BindingList<Expense> _gridData = new BindingList<Expense>();
+        private MainPageView _form;
+        private readonly BindingList<Expense> _gridData = new BindingList<Expense>();
 
         public MainPageController()
         {
            
         }
-
        
         public void OnLoad()
         {
@@ -29,7 +28,7 @@ namespace DXWindowsApplication2.Controller
 
         public void SetView(XtraForm view)
         {
-            _form = (Form1)view;
+            _form = (MainPageView)view;
         }
 
         private void InitGrid()
@@ -43,7 +42,7 @@ namespace DXWindowsApplication2.Controller
             _form.SetGrid(_gridData);
         }
 
-        public void addExpense(Expense expense)
+        public void AddExpense(Expense expense)
         {
             _gridData.Add(expense);
         }
