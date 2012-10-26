@@ -1,9 +1,10 @@
 using System;
+using System.ComponentModel;
 
 namespace DXWindowsApplication2.Model 
-{   
-    
-    public class Expense
+{
+
+    public class Expense : INotifyPropertyChanged 
     {
         private  DateTime _time;
         private  string _field;
@@ -25,37 +26,80 @@ namespace DXWindowsApplication2.Model
         public string Description
         {
             get { return _description; }
-            set { _description = value; }
+            set
+            {
+                if(_description != value)
+                {
+                    _description = value;
+                    OnPropertyChanged("Description");
+                };
+            }
         }
 
         public DateTime Time
         {
             get { return _time; }
-            set { _time = value; }
+            set
+            {
+                if(_time != value)
+                {
+                    _time = value;
+                    OnPropertyChanged("Time");
+                };
+            }
         }
 
         public bool IsExpense
         {
             get { return _isExpense; }
-            set { _isExpense = value; }
+            set
+            {
+                if(_isExpense != value)
+                {
+                    _isExpense = value;
+                    OnPropertyChanged("IsExpense");
+                };
+            }
         }
 
         public double Value
         {
             get { return _value; }
-            set { _value = value; }
+            set
+            {
+                if(_value != value)
+                {
+                    _value = value;
+                    OnPropertyChanged("Value");
+                };
+            }
         }
 
         public string Field
         {
             get { return _field; }
-            set { _field = value; }
+            set 
+            {
+                if (_field != value)
+                {
+                    _field = value;
+                    OnPropertyChanged("Field"); 
+                }
+                   
+            }
         }
         
         public override string ToString()
         {
             return String.Format("field:{0}, description:{1}, value:{2}, expense:{3}, time:{4}",
                                  _field, _description, _value, _isExpense, _time);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

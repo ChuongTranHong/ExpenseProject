@@ -21,8 +21,8 @@ namespace DXWindowsApplication2
             DevExpress.Skins.SkinManager.EnableFormSkins();
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("Office 2010 Blue");
-            var mainController = new MainPageController();
-            MainPageView mainForm = new MainPageView(mainController);
+            var mainForm = new MainPageView(new MainPageController());
+            mainForm.FormClosing += mainForm.HandleClosing;
             Application.Run(mainForm);
         }
     }

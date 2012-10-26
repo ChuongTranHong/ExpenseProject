@@ -15,12 +15,13 @@ namespace DXWindowsApplication2.Controller
     {
         private MainPageView _form;
         private readonly BindingList<Expense> _gridData = new BindingList<Expense>();
+        private bool _gridIsChanged = false;
 
-        public MainPageController()
+        public bool GridIsChanged
         {
-           
+            get { return _gridIsChanged; }
         }
-       
+
         public void OnLoad()
         {
             InitGrid();
@@ -46,6 +47,18 @@ namespace DXWindowsApplication2.Controller
         {
             _gridData.Add(expense);
         }
+
+        public void SetGridChanged()
+        {
+            _gridIsChanged = true;
+        }
+
+        public void SaveDataFromGridToFile(BindingList<Expense> dataSource)
+        {
+            var convertor = new ConvertToJson(ProjectEnvironment.FILEPATH);
+            convertor.WriteToFile(dataSource);
+        }
+   
     }
 }
 

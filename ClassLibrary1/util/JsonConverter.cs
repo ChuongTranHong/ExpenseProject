@@ -28,7 +28,7 @@ namespace ClassLibrary1
         [Test]
         public void WriteToFile()
         {
-            _converter.WriteToFile(listObj);
+//            _converter.WriteToFile(listObj);
 //            var result = _converter.Serialized(listObj);
 //            var deserializedResult = _converter.Deserialized<List<Expense>>(result);
 //            foreach (Expense expense in deserializedResult)

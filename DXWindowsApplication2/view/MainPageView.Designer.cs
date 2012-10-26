@@ -48,11 +48,11 @@
             this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer(this.components);
             this.buttonEdit = new DevExpress.XtraEditors.ButtonEdit();
-            this.iNew = new DevExpress.XtraBars.BarButtonItem();
+            this.newItemButton = new DevExpress.XtraBars.BarButtonItem();
             this.iOpen = new DevExpress.XtraBars.BarButtonItem();
-            this.iSave = new DevExpress.XtraBars.BarButtonItem();
+            this.saveButton = new DevExpress.XtraBars.BarButtonItem();
             this.iSaveAs = new DevExpress.XtraBars.BarButtonItem();
-            this.iExit = new DevExpress.XtraBars.BarButtonItem();
+            this.exitButton = new DevExpress.XtraBars.BarButtonItem();
             this.popupControlContainer1 = new DevExpress.XtraBars.PopupControlContainer(this.components);
             this.someLabelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.someLabelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -216,7 +216,7 @@
             // gridControl
             // 
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl.EmbeddedNavigator.AccessibleRole = System.Windows.Forms.AccessibleRole.None; 
+            this.gridControl.EmbeddedNavigator.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.gridControl.EmbeddedNavigator.Buttons.Append.Enabled = false;
             this.gridControl.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.gridControl.EmbeddedNavigator.Buttons.CancelEdit.Enabled = false;
@@ -243,21 +243,18 @@
             // 
             this.ribbonControl.ApplicationButtonDropDownControl = this.appMenu;
             this.ribbonControl.ApplicationButtonText = null;
-            // 
-            // 
-            // 
             this.ribbonControl.ExpandCollapseItem.Id = 0;
             this.ribbonControl.ExpandCollapseItem.Name = "";
             this.ribbonControl.Images = this.ribbonImageCollection;
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl.ExpandCollapseItem,
-            this.iNew,
+            this.newItemButton,
             this.iOpen,
             this.iClose,
             this.iFind,
-            this.iSave,
+            this.saveButton,
             this.iSaveAs,
-            this.iExit,
+            this.exitButton,
             this.iHelp,
             this.iAbout,
             this.siStatus,
@@ -282,20 +279,20 @@
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2007;
             this.ribbonControl.Size = new System.Drawing.Size(950, 142);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
-            this.ribbonControl.Toolbar.ItemLinks.Add(this.iNew);
+            this.ribbonControl.Toolbar.ItemLinks.Add(this.newItemButton);
             this.ribbonControl.Toolbar.ItemLinks.Add(this.iOpen);
-            this.ribbonControl.Toolbar.ItemLinks.Add(this.iSave);
+            this.ribbonControl.Toolbar.ItemLinks.Add(this.saveButton);
             this.ribbonControl.Toolbar.ItemLinks.Add(this.iSaveAs);
             this.ribbonControl.Toolbar.ItemLinks.Add(this.iHelp);
             // 
             // appMenu
             // 
             this.appMenu.BottomPaneControlContainer = this.popupControlContainer2;
-            this.appMenu.ItemLinks.Add(this.iNew);
+            this.appMenu.ItemLinks.Add(this.newItemButton);
             this.appMenu.ItemLinks.Add(this.iOpen);
-            this.appMenu.ItemLinks.Add(this.iSave);
+            this.appMenu.ItemLinks.Add(this.saveButton);
             this.appMenu.ItemLinks.Add(this.iSaveAs);
-            this.appMenu.ItemLinks.Add(this.iExit);
+            this.appMenu.ItemLinks.Add(this.exitButton);
             this.appMenu.Name = "appMenu";
             this.appMenu.Ribbon = this.ribbonControl;
             this.appMenu.RightPaneControlContainer = this.popupControlContainer1;
@@ -325,15 +322,15 @@
             this.buttonEdit.Size = new System.Drawing.Size(100, 20);
             this.buttonEdit.TabIndex = 0;
             // 
-            // iNew
+            // newItemButton
             // 
-            this.iNew.Caption = "New";
-            this.iNew.Description = "Creates a new, blank file.";
-            this.iNew.Hint = "Creates a new, blank file";
-            this.iNew.Id = 1;
-            this.iNew.ImageIndex = 0;
-            this.iNew.LargeImageIndex = 0;
-            this.iNew.Name = "iNew";
+            this.newItemButton.Caption = "New";
+            this.newItemButton.Description = "Creates a new, blank file.";
+            this.newItemButton.Hint = "Creates a new, blank file";
+            this.newItemButton.Id = 1;
+            this.newItemButton.ImageIndex = 0;
+            this.newItemButton.LargeImageIndex = 0;
+            this.newItemButton.Name = "iNew";
             // 
             // iOpen
             // 
@@ -346,15 +343,15 @@
             this.iOpen.Name = "iOpen";
             this.iOpen.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
-            // iSave
+            // saveButton
             // 
-            this.iSave.Caption = "&Save";
-            this.iSave.Description = "Saves the active document.";
-            this.iSave.Hint = "Saves the active document";
-            this.iSave.Id = 16;
-            this.iSave.ImageIndex = 4;
-            this.iSave.LargeImageIndex = 4;
-            this.iSave.Name = "iSave";
+            this.saveButton.Caption = "&Save";
+            this.saveButton.Description = "Saves the active document.";
+            this.saveButton.Hint = "Saves the active document";
+            this.saveButton.Id = 16;
+            this.saveButton.ImageIndex = 4;
+            this.saveButton.LargeImageIndex = 4;
+            this.saveButton.Name = "SaveButton";
             // 
             // iSaveAs
             // 
@@ -366,15 +363,15 @@
             this.iSaveAs.LargeImageIndex = 5;
             this.iSaveAs.Name = "iSaveAs";
             // 
-            // iExit
+            // exitButton
             // 
-            this.iExit.Caption = "Exit";
-            this.iExit.Description = "Closes this program after prompting you to save unsaved data.";
-            this.iExit.Hint = "Closes this program after prompting you to save unsaved data";
-            this.iExit.Id = 20;
-            this.iExit.ImageIndex = 6;
-            this.iExit.LargeImageIndex = 6;
-            this.iExit.Name = "iExit";
+            this.exitButton.Caption = "Exit";
+            this.exitButton.Description = "Closes this program after prompting you to save unsaved data.";
+            this.exitButton.Hint = "Closes this program after prompting you to save unsaved data";
+            this.exitButton.Id = 20;
+            this.exitButton.ImageIndex = 6;
+            this.exitButton.LargeImageIndex = 6;
+            this.exitButton.Name = "ExitButton";
             // 
             // popupControlContainer1
             // 
@@ -585,11 +582,11 @@
             // 
             // fileRibbonPageGroup
             // 
-            this.fileRibbonPageGroup.ItemLinks.Add(this.iNew);
+            this.fileRibbonPageGroup.ItemLinks.Add(this.newItemButton);
             this.fileRibbonPageGroup.ItemLinks.Add(this.iOpen);
             this.fileRibbonPageGroup.ItemLinks.Add(this.iClose);
             this.fileRibbonPageGroup.ItemLinks.Add(this.iFind);
-            this.fileRibbonPageGroup.ItemLinks.Add(this.iSave);
+            this.fileRibbonPageGroup.ItemLinks.Add(this.saveButton);
             this.fileRibbonPageGroup.ItemLinks.Add(this.iSaveAs);
             this.fileRibbonPageGroup.Name = "fileRibbonPageGroup";
             this.fileRibbonPageGroup.Text = "File";
@@ -610,7 +607,7 @@
             // 
             // exitRibbonPageGroup
             // 
-            this.exitRibbonPageGroup.ItemLinks.Add(this.iExit);
+            this.exitRibbonPageGroup.ItemLinks.Add(this.exitButton);
             this.exitRibbonPageGroup.Name = "exitRibbonPageGroup";
             this.exitRibbonPageGroup.Text = "Exit";
             // 
@@ -673,13 +670,13 @@
 
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
-        private DevExpress.XtraBars.BarButtonItem iNew;
+        private DevExpress.XtraBars.BarButtonItem newItemButton;
         private DevExpress.XtraBars.BarButtonItem iOpen;
         private DevExpress.XtraBars.BarButtonItem iClose;
         private DevExpress.XtraBars.BarButtonItem iFind;
-        private DevExpress.XtraBars.BarButtonItem iSave;
+        private DevExpress.XtraBars.BarButtonItem saveButton;
         private DevExpress.XtraBars.BarButtonItem iSaveAs;
-        private DevExpress.XtraBars.BarButtonItem iExit;
+        private DevExpress.XtraBars.BarButtonItem exitButton;
         private DevExpress.XtraBars.BarButtonItem iHelp;
         private DevExpress.XtraBars.BarButtonItem iAbout;
         private DevExpress.XtraBars.BarStaticItem siStatus;

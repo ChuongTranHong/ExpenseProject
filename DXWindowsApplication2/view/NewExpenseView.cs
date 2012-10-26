@@ -34,6 +34,7 @@ namespace DXWindowsApplication2.view
             submitButton.MouseClick += SubmitButtonClick;
             cancelButton.MouseClick += CancelButtonClick;
         }
+
         private void CancelButtonClick(object sender, MouseEventArgs mouseEventArgs)
         {
             var parent = Owner;
@@ -64,7 +65,6 @@ namespace DXWindowsApplication2.view
             }
             parent.Focus();
             Close();
-            
         }
         
         private Boolean ValidateBeforeSubmit()
@@ -101,7 +101,6 @@ namespace DXWindowsApplication2.view
             {
                 errorProvider3.Clear();
             }
-
             return isCorrect;
         }
 

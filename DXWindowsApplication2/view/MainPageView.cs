@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 using DXWindowsApplication2.Controller;
 using DXWindowsApplication2.Model;
+using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Helpers;
 
@@ -19,9 +21,8 @@ namespace DXWindowsApplication2.view
             _controller.SetView(this);
             InitializeComponent();
             InitSkinGallery();
-            RegisterListener();
             _controller.OnLoad();
-
+            RegisterListener();
         }
 
         void InitSkinGallery()
@@ -36,20 +37,35 @@ namespace DXWindowsApplication2.view
 
         private void RegisterListener()
         {
-            iNew.ItemClick += NewItemClick;
+            newItemButton.ItemClick += NewItemButtonItemClick;
             gridControl.EmbeddedNavigator.ButtonClick += GridControlClick;
+            saveButton.ItemClick += SaveButtonItemClick;
+            exitButton.ItemClick += CloseApplication;
+
+            var dataSource = (BindingList<Expense>)gridControl.DataSource;
+            dataSource.ListChanged += HandleDataSourceChange;
         }
 
-        private void NewItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void NewItemButtonItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             XtraForm newForm = new NewExpenseView(new NewExpenseController());
             newForm.Owner = this;
             newForm.Show();
         }
 
+        private void CloseApplication(object sender, ItemClickEventArgs itemClickEventArgs)
+        {
+            Close();
+        }
+
         public void AddExpense(Expense expense)
         {
             _controller.AddExpense(expense);
+        }
+
+        private void GirdHasChanged()
+        {
+            _controller.SetGridChanged();
         }
 
         private void GridControlClick(object sender, NavigatorButtonClickEventArgs e)
@@ -74,5 +90,37 @@ namespace DXWindowsApplication2.view
             return true;
         }
 
+        private void SaveButtonItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!_controller.GridIsChanged) return;
+            SaveChangeToFile();
+        }
+
+        private void HandleDataSourceChange(object sender, ListChangedEventArgs listChangedEventArgs)
+        {
+            GirdHasChanged();
+        }
+
+        public void HandleClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!_controller.GridIsChanged) return;
+            var result = XtraMessageBox.Show("Do you want to save the changes ?", "Expense",
+                                             MessageBoxButtons.YesNoCancel);
+            switch(result)
+            {
+                case DialogResult.Yes:
+                    SaveChangeToFile();
+                    break;
+                case DialogResult.Cancel:
+                    e.Cancel = true;
+                    break;
+            }
+        }
+
+        private void SaveChangeToFile()
+        {
+            var dataSource = (BindingList<Expense>)gridControl.DataSource;
+            _controller.SaveDataFromGridToFile(dataSource);
+        }
     }
 }
