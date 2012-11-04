@@ -82,8 +82,11 @@
     <Compile Include="Controller\NewExpenseController.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Expense.cs" />
+    <Compile Include="util\Converter.cs" />
+    <Compile Include="util\DbsConverter.cs" />
     <Compile Include="util\JsonConverter.cs" />
     <Compile Include="util\Environment.cs" />
+    <Compile Include="util\OcbcConverter.cs" />
     <Compile Include="util\XmlUtil.cs" />
     <Compile Include="view\MainPageView.cs">
       <SubType>Form</SubType>

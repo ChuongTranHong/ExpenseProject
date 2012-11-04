@@ -23,6 +23,15 @@ namespace DXWindowsApplication2.Model
             
         }
 
+        public Expense()
+        {
+            _time = DateTime.Today;
+            _field = "";
+            _description = "";
+            _value = 0;
+            _isExpense = true;
+        }
+
         public string Description
         {
             get { return _description; }
