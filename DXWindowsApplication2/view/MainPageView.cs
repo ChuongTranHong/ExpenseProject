@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Resources;
 using System.Windows.Forms;
 using DXWindowsApplication2.Controller;
 using DXWindowsApplication2.Model;
+using DXWindowsApplication2.util;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Helpers;
@@ -41,9 +43,26 @@ namespace DXWindowsApplication2.view
             gridControl.EmbeddedNavigator.ButtonClick += GridControlClick;
             saveButton.ItemClick += SaveButtonItemClick;
             exitButton.ItemClick += CloseApplication;
-
+            pasteButton.ItemClick += PasteButtonItemClick;
             var dataSource = (BindingList<Expense>)gridControl.DataSource;
             dataSource.ListChanged += HandleDataSourceChange;
+        }
+
+        private void PasteButtonItemClick(object sender, ItemClickEventArgs e)
+        {
+            IDataObject data = Clipboard.GetDataObject();
+            // If the data is text, then set the text of the 
+            // TextBox to the text in the Clipboard.
+            var converter = new OcbcConverter();
+            if (data.GetDataPresent(DataFormats.Text))
+            {
+                List<Expense> expenses = converter.Convert(data.GetData(DataFormats.Text).ToString());
+                foreach( var expense in expenses)
+                {
+                    _controller.AddExpense(expense);
+                }
+
+            }
         }
 
         private void NewItemButtonItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

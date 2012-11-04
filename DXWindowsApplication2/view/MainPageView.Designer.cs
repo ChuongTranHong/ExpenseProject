@@ -50,6 +50,8 @@
             this.buttonEdit = new DevExpress.XtraEditors.ButtonEdit();
             this.newItemButton = new DevExpress.XtraBars.BarButtonItem();
             this.iOpen = new DevExpress.XtraBars.BarButtonItem();
+            this.pasteButton = new DevExpress.XtraBars.BarButtonItem();
+            this.copyButton = new DevExpress.XtraBars.BarButtonItem();
             this.saveButton = new DevExpress.XtraBars.BarButtonItem();
             this.iSaveAs = new DevExpress.XtraBars.BarButtonItem();
             this.exitButton = new DevExpress.XtraBars.BarButtonItem();
@@ -250,10 +252,12 @@
             this.ribbonControl.ExpandCollapseItem,
             this.newItemButton,
             this.iOpen,
+            this.pasteButton,
             this.iClose,
             this.iFind,
             this.saveButton,
             this.iSaveAs,
+            this.copyButton,
             this.exitButton,
             this.iHelp,
             this.iAbout,
@@ -281,6 +285,7 @@
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.Toolbar.ItemLinks.Add(this.newItemButton);
             this.ribbonControl.Toolbar.ItemLinks.Add(this.iOpen);
+            this.ribbonControl.Toolbar.ItemLinks.Add(this.pasteButton);
             this.ribbonControl.Toolbar.ItemLinks.Add(this.saveButton);
             this.ribbonControl.Toolbar.ItemLinks.Add(this.iSaveAs);
             this.ribbonControl.Toolbar.ItemLinks.Add(this.iHelp);
@@ -290,6 +295,8 @@
             this.appMenu.BottomPaneControlContainer = this.popupControlContainer2;
             this.appMenu.ItemLinks.Add(this.newItemButton);
             this.appMenu.ItemLinks.Add(this.iOpen);
+            this.appMenu.ItemLinks.Add(this.pasteButton);
+            this.appMenu.ItemLinks.Add(this.copyButton);
             this.appMenu.ItemLinks.Add(this.saveButton);
             this.appMenu.ItemLinks.Add(this.iSaveAs);
             this.appMenu.ItemLinks.Add(this.exitButton);
@@ -330,7 +337,7 @@
             this.newItemButton.Id = 1;
             this.newItemButton.ImageIndex = 0;
             this.newItemButton.LargeImageIndex = 0;
-            this.newItemButton.Name = "iNew";
+            this.newItemButton.Name = "newItemButton";
             // 
             // iOpen
             // 
@@ -343,6 +350,28 @@
             this.iOpen.Name = "iOpen";
             this.iOpen.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
+            // pasteButton
+            // 
+            this.pasteButton.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.pasteButton.Caption = "Paste";
+            this.pasteButton.Description = "paste";
+            this.pasteButton.Hint = "paste";
+            this.pasteButton.Id = 61;
+            this.pasteButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("pasteButton.LargeGlyph")));
+            this.pasteButton.LargeGlyphDisabled = ((System.Drawing.Image)(resources.GetObject("pasteButton.LargeGlyphDisabled")));
+            this.pasteButton.Name = "pasteButton";
+            // 
+            // copyButton
+            // 
+            this.copyButton.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.copyButton.Caption = "Copy";
+            this.copyButton.Description = "Copy";
+            this.copyButton.Hint = "Copy";
+            this.copyButton.Id = 62;
+            this.copyButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("copyButton.LargeGlyph")));
+            this.copyButton.LargeGlyphDisabled = ((System.Drawing.Image)(resources.GetObject("copyButton.LargeGlyphDisabled")));
+            this.copyButton.Name = "copyButton";
+            // 
             // saveButton
             // 
             this.saveButton.Caption = "&Save";
@@ -351,7 +380,7 @@
             this.saveButton.Id = 16;
             this.saveButton.ImageIndex = 4;
             this.saveButton.LargeImageIndex = 4;
-            this.saveButton.Name = "SaveButton";
+            this.saveButton.Name = "saveButton";
             // 
             // iSaveAs
             // 
@@ -371,7 +400,7 @@
             this.exitButton.Id = 20;
             this.exitButton.ImageIndex = 6;
             this.exitButton.LargeImageIndex = 6;
-            this.exitButton.Name = "ExitButton";
+            this.exitButton.Name = "exitButton";
             // 
             // popupControlContainer1
             // 
@@ -586,6 +615,8 @@
             this.fileRibbonPageGroup.ItemLinks.Add(this.iOpen);
             this.fileRibbonPageGroup.ItemLinks.Add(this.iClose);
             this.fileRibbonPageGroup.ItemLinks.Add(this.iFind);
+            this.fileRibbonPageGroup.ItemLinks.Add(this.copyButton);
+            this.fileRibbonPageGroup.ItemLinks.Add(this.pasteButton);
             this.fileRibbonPageGroup.ItemLinks.Add(this.saveButton);
             this.fileRibbonPageGroup.ItemLinks.Add(this.iSaveAs);
             this.fileRibbonPageGroup.Name = "fileRibbonPageGroup";
@@ -672,6 +703,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
         private DevExpress.XtraBars.BarButtonItem newItemButton;
         private DevExpress.XtraBars.BarButtonItem iOpen;
+        private DevExpress.XtraBars.BarButtonItem pasteButton;
+        private DevExpress.XtraBars.BarButtonItem copyButton;
         private DevExpress.XtraBars.BarButtonItem iClose;
         private DevExpress.XtraBars.BarButtonItem iFind;
         private DevExpress.XtraBars.BarButtonItem saveButton;
