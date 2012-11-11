@@ -8,7 +8,7 @@ namespace DXWindowsApplication2.util
 {
     public class OcbcConverter : IConverter
     {
-        readonly string[] _format = new string[] { "dd/MM/yyyy" };
+        readonly string[] _format = new[] { "dd/MM/yyyy" };
         public List<Expense> Convert(string testString)
         {
             var result = new List<Expense>();
@@ -49,7 +49,8 @@ namespace DXWindowsApplication2.util
             while (index < stringList.Count)
             {
                 DateTime datetime;
-                if (DateTime.TryParseExact(stringList[index], _format, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.NoCurrentDateDefault, out datetime))
+                if (DateTime.TryParseExact(stringList[index], _format, System.Globalization.CultureInfo.InvariantCulture, 
+                                System.Globalization.DateTimeStyles.NoCurrentDateDefault, out datetime))
                 {
                     index--;
                     break;

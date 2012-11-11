@@ -50,7 +50,9 @@
             this.buttonEdit = new DevExpress.XtraEditors.ButtonEdit();
             this.newItemButton = new DevExpress.XtraBars.BarButtonItem();
             this.iOpen = new DevExpress.XtraBars.BarButtonItem();
-            this.pasteButton = new DevExpress.XtraBars.BarButtonItem();
+            this.pasteButton = new DevExpress.XtraBars.BarSubItem();
+            this.ocbcPasteButton = new DevExpress.XtraBars.BarButtonItem();
+            this.dbsPasteButton = new DevExpress.XtraBars.BarButtonItem();
             this.copyButton = new DevExpress.XtraBars.BarButtonItem();
             this.saveButton = new DevExpress.XtraBars.BarButtonItem();
             this.iSaveAs = new DevExpress.XtraBars.BarButtonItem();
@@ -271,10 +273,12 @@
             this.iLeftTextAlign,
             this.iCenterTextAlign,
             this.iRightTextAlign,
-            this.rgbiSkins});
+            this.rgbiSkins,
+            this.ocbcPasteButton,
+            this.dbsPasteButton});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 62;
+            this.ribbonControl.MaxItemId = 65;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -359,7 +363,26 @@
             this.pasteButton.Id = 61;
             this.pasteButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("pasteButton.LargeGlyph")));
             this.pasteButton.LargeGlyphDisabled = ((System.Drawing.Image)(resources.GetObject("pasteButton.LargeGlyphDisabled")));
+            this.pasteButton.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.ocbcPasteButton),
+            new DevExpress.XtraBars.LinkPersistInfo(this.dbsPasteButton)});
             this.pasteButton.Name = "pasteButton";
+            // 
+            // ocbcPasteButton
+            // 
+            this.ocbcPasteButton.Caption = "Ocbc Paste";
+            this.ocbcPasteButton.Glyph = ((System.Drawing.Image)(resources.GetObject("ocbcPasteButton.Glyph")));
+            this.ocbcPasteButton.Id = 63;
+            this.ocbcPasteButton.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("ocbcPasteButton.LargeGlyph")));
+            this.ocbcPasteButton.LargeGlyphDisabled = ((System.Drawing.Image)(resources.GetObject("ocbcPasteButton.LargeGlyphDisabled")));
+            this.ocbcPasteButton.Name = "ocbcPasteButton";
+            // 
+            // dbsPasteButton
+            // 
+            this.dbsPasteButton.Caption = "DBS Paste";
+            this.dbsPasteButton.Glyph = ((System.Drawing.Image)(resources.GetObject("dbsPasteButton.Glyph")));
+            this.dbsPasteButton.Id = 64;
+            this.dbsPasteButton.Name = "dbsPasteButton";
             // 
             // copyButton
             // 
@@ -703,7 +726,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
         private DevExpress.XtraBars.BarButtonItem newItemButton;
         private DevExpress.XtraBars.BarButtonItem iOpen;
-        private DevExpress.XtraBars.BarButtonItem pasteButton;
+        private DevExpress.XtraBars.BarSubItem pasteButton;
         private DevExpress.XtraBars.BarButtonItem copyButton;
         private DevExpress.XtraBars.BarButtonItem iClose;
         private DevExpress.XtraBars.BarButtonItem iFind;
@@ -752,6 +775,8 @@
         private System.Windows.Forms.ImageList navbarImageListLarge;
         private DevExpress.XtraGrid.GridControl gridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraBars.BarButtonItem ocbcPasteButton;
+        private DevExpress.XtraBars.BarButtonItem dbsPasteButton;
        
     }
 }
