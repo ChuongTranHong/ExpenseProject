@@ -16,10 +16,10 @@ namespace ClassLibrary1.util
         [Test]
         public void ShouldConvertOneExpense()
         {
-            const string testString = "06 Oct 2012\tAWL\t11990463,BISHAN 13/514A\tS$50.00\t";
+            const string testString = "31 Oct 2012 \tINT \t  \t \tS$0.07 ";
             var expenses = _converter.Convert(testString);
             Assert.AreEqual(1, expenses.Count);
-            AssertExpenseDetail(expenses[0], new DateTime(2012, 10, 6), "11990463,BISHAN 13/514A", 50, true);
+            AssertExpenseDetail(expenses[0], new DateTime(2012, 10, 31), "", 0.07, false);
         }
 
         private static void AssertExpenseDetail(Expense expense,DateTime time, String description, double value, bool isExpense)
@@ -34,12 +34,11 @@ namespace ClassLibrary1.util
         public void TestShouldConvertManyExpense()
         {
             const string testString =
-                "01 Nov 2012\tIBG\tBY :DBS CARD CENTRE PART/REF:DCC (LOAN) 000051885461\tS$500.00\t\n31 Oct 2012\tINT\t\t\tS$0.07";
+                "31 Oct 2012 \tINT \t  \t \tS$0.07 \r\n27 Oct 2012 \tMST \t00.30 % CASHBACK 24OCT 4628-4500-1199-0463  \tS$2.80 \t ";
             var expenses = _converter.Convert(testString);
             Assert.AreEqual(2, expenses.Count);
-            AssertExpenseDetail(expenses[0], new DateTime(2012, 11, 1),
-                                "BY :DBS CARD CENTRE PART/REF:DCC (LOAN) 000051885461", 500, true);
-            AssertExpenseDetail(expenses[1], new DateTime(2012,10,31), "", 0.07, false );
+            AssertExpenseDetail(expenses[0], new DateTime(2012, 10, 31), "", 0.07, false);
+            AssertExpenseDetail(expenses[1], new DateTime(2012, 10, 27), "00.30 % CASHBACK 24OCT 4628-4500-1199-0463", 2.80, true);
         }
         [Test]
         public void ConvertCurrency()

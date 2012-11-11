@@ -12,8 +12,9 @@ namespace DXWindowsApplication2.util
         public List<Expense> Convert(string testString)
         {
             var result = new List<Expense>();
-            var splitList = testString.Split('\t').ToList();
-            for (var i = 0; i < splitList.Count; i++)
+            char[] delimiterChars = { '\n', '\t' };
+            var splitList = testString.Split(delimiterChars).ToList();
+            for (var i = 0; i < splitList.Count-4; i++)
             {
                 var newExpense = new Expense();
                 var actualDateTime = splitList[i++].Trim();
@@ -26,34 +27,22 @@ namespace DXWindowsApplication2.util
                 newExpense.Description = actualDescription;
                 if (actualDebit != "")
                 {
-                    newExpense.IsExpense = true;
-                    ExtractExpenseValue(newExpense, actualDebit);
-                    var splitIncomeValue = actualCredit.Split('\n');
-                    CheckForTheEndOfSplitList(splitIncomeValue, splitList, i);
-
+                    ExtractExpenseValue(newExpense, actualDebit, true);
                 }
                 else
                 {
-                    newExpense.IsExpense = false;
-                    var splitIncomeValue = actualCredit.Split('\n');
-                    ExtractExpenseValue(newExpense, actualCredit);
-                    CheckForTheEndOfSplitList(splitIncomeValue, splitList, i);
+                    ExtractExpenseValue(newExpense, actualCredit, false);
                 }
                 result.Add(newExpense);
             }
             return result;
         }
 
-        private static void ExtractExpenseValue(Expense newExpense, string stringValue)
+        private static void ExtractExpenseValue(Expense newExpense, string stringValue, bool isExpense)
         {
             var removeSingaporeDollarSymbol = stringValue.Substring(1, stringValue.Length - 1);
+            newExpense.IsExpense = isExpense;
             newExpense.Value = Double.Parse(removeSingaporeDollarSymbol, NumberStyles.Currency);
-        }
-
-        private static void CheckForTheEndOfSplitList(string[] splitIncomeValue, List<string> splitList, int i)
-        {
-            if (i != (splitList.Count - 1))
-                splitList.Insert(i + 1, splitIncomeValue[splitIncomeValue.Length - 1]);
         }
     }
 }

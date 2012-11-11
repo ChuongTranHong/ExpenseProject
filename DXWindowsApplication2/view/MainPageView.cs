@@ -53,7 +53,7 @@ namespace DXWindowsApplication2.view
             IDataObject data = Clipboard.GetDataObject();
             // If the data is text, then set the text of the 
             // TextBox to the text in the Clipboard.
-            var converter = new OcbcConverter();
+            var converter = new DbsConverter();
             if (data.GetDataPresent(DataFormats.Text))
             {
                 List<Expense> expenses = converter.Convert(data.GetData(DataFormats.Text).ToString());

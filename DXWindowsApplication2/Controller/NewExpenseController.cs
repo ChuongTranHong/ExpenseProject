@@ -21,6 +21,7 @@ namespace DXWindowsApplication2.Controller
         {
             _expenseView = (NewExpenseView)view;
         }
+
         private void LoadFieldDropDown()
         {
             var dropDown = _expenseView.FieldDropDown;

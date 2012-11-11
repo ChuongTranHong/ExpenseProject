@@ -91,6 +91,7 @@ namespace DXWindowsApplication2.Controller
         {
             throw new NotImplementedException();
         }
+
         private void releaseObject(object obj)
         {
             try
