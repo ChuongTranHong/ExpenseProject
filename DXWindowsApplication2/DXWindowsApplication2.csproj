@@ -61,6 +61,11 @@
     <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v12.1.Core, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v12.1.Extensions, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v12.1.iCalendarExchange, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -80,6 +85,10 @@
     <Compile Include="Controller\IController.cs" />
     <Compile Include="Controller\MainPageController.cs" />
     <Compile Include="Controller\NewExpenseController.cs" />
+    <Compile Include="Controls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Expense.cs" />
     <Compile Include="util\Converter.cs" />
@@ -88,6 +97,12 @@
     <Compile Include="util\Environment.cs" />
     <Compile Include="util\OcbcConverter.cs" />
     <Compile Include="util\XmlUtil.cs" />
+    <Compile Include="view\Calendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\Calendar.designer.cs">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\MainPageView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +117,15 @@
     <Compile Include="view\NewExpenseView.Designer.cs">
       <DependentUpon>NewExpenseView.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\NavigateCalendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\NavigateCalendar.designer.cs">
+      <DependentUpon>NavigateCalendar.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="view\Calendar.resx">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\MainPageView.resx">
       <DependentUpon>MainPageView.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +142,9 @@
     </Compile>
     <EmbeddedResource Include="view\NewExpenseView.resx">
       <DependentUpon>NewExpenseView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\NavigateCalendar.resx">
+      <DependentUpon>NavigateCalendar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -157,6 +184,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Image1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Mail.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

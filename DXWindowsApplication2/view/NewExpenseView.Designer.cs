@@ -39,7 +39,7 @@
             this.submitButton = new DevExpress.XtraEditors.SimpleButton();
             this.cancelButton = new DevExpress.XtraEditors.SimpleButton();
             this.expenseCheck = new DevExpress.XtraEditors.CheckEdit();
-            this.FieldDropDown = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.fieldDropDown = new DevExpress.XtraEditors.ComboBoxEdit();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -48,7 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.descriptionText.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valueText.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expenseCheck.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FieldDropDown.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fieldDropDown.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
@@ -139,12 +139,12 @@
             // 
             // fieldDropDown
             // 
-            this.FieldDropDown.Location = new System.Drawing.Point(58, 10);
-            this.FieldDropDown.Name = "FieldDropDown";
-            this.FieldDropDown.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.fieldDropDown.Location = new System.Drawing.Point(58, 10);
+            this.fieldDropDown.Name = "fieldDropDown";
+            this.fieldDropDown.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.FieldDropDown.Size = new System.Drawing.Size(112, 20);
-            this.FieldDropDown.TabIndex = 11;
+            this.fieldDropDown.Size = new System.Drawing.Size(112, 20);
+            this.fieldDropDown.TabIndex = 11;
             // 
             // errorProvider1
             // 
@@ -158,12 +158,12 @@
             // 
             this.errorProvider3.ContainerControl = this;
             // 
-            // NewExpense
+            // NewExpenseView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 212);
-            this.Controls.Add(this.FieldDropDown);
+            this.Controls.Add(this.fieldDropDown);
             this.Controls.Add(this.expenseCheck);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.submitButton);
@@ -174,14 +174,14 @@
             this.Controls.Add(this.dateText);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
-            this.Name = "NewExpense";
+            this.Name = "NewExpenseView";
             this.Text = "XtraForm1";
             ((System.ComponentModel.ISupportInitialize)(this.dateText.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateText.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.descriptionText.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valueText.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expenseCheck.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FieldDropDown.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fieldDropDown.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
@@ -202,6 +202,7 @@
         private DevExpress.XtraEditors.SimpleButton submitButton;
         private DevExpress.XtraEditors.SimpleButton cancelButton;
         private DevExpress.XtraEditors.CheckEdit expenseCheck;
+        private DevExpress.XtraEditors.ComboBoxEdit fieldDropDown;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.ErrorProvider errorProvider3;

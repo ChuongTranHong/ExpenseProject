@@ -22,7 +22,7 @@ namespace DXWindowsApplication2.view
         public NewExpenseView(Expense row):this(new NewExpenseController())
         {
             _currentEditExpense = row;
-            FieldDropDown.Text = row.Field;
+            fieldDropDown.Text = row.Field;
             descriptionText.Text = row.Description;
             valueText.Text = row.Value.ToString();
             expenseCheck.Checked =row.IsExpense;
@@ -50,7 +50,7 @@ namespace DXWindowsApplication2.view
             var value = Convert.ToDouble(valueText.Text);
             var isExpense = expenseCheck.Checked;
             var description = descriptionText.Text;
-            var field = FieldDropDown.Text;
+            var field = fieldDropDown.Text;
             var parent = (MainPageView)this.Owner;
             if (_currentEditExpense == null) 
                 parent.AddExpense(new Expense(field, description, value, isExpense, time));
@@ -92,9 +92,9 @@ namespace DXWindowsApplication2.view
                 isCorrect = false;
             }
 
-            if (string.IsNullOrEmpty(FieldDropDown.Text))
+            if (string.IsNullOrEmpty(fieldDropDown.Text))
             {
-                errorProvider3.SetError(FieldDropDown, "field need to be filled");
+                errorProvider3.SetError(fieldDropDown, "field need to be filled");
                 isCorrect = false;
             }
             else
@@ -104,6 +104,10 @@ namespace DXWindowsApplication2.view
             return isCorrect;
         }
 
-        public ComboBoxEdit FieldDropDown { get; private set; }
+        public ComboBoxEdit FieldDropDown
+        {
+            get { return fieldDropDown; }
+            set { fieldDropDown = value; }
+        }
     }
 }

@@ -6,6 +6,7 @@ using DXWindowsApplication2.util;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Helpers;
+using DevExpress.XtraNavBar;
 
 namespace DXWindowsApplication2.view
 {
@@ -20,6 +21,7 @@ namespace DXWindowsApplication2.view
             InitializeComponent();
             InitSkinGallery();
             _controller.OnLoad();
+            calendarPanel.SetupCalendarControll(navigateCalendar);
             RegisterListener();
         }
 
@@ -43,6 +45,26 @@ namespace DXWindowsApplication2.view
             dbsPasteButton.ItemClick += DbsPasteButtonOnItemClick;
             var dataSource = (BindingList<Expense>)gridControl.DataSource;
             dataSource.ListChanged += HandleDataSourceChange;
+//            calendarNavBarButton.Tag = calendarPanel;
+            calendarItem.LinkClicked += CalendarItemClickHandler;
+            
+        }
+
+        private void CalendarItemClickHandler(object sender, NavBarLinkEventArgs e)
+        {
+            if(gridControl.Enabled)
+            {
+                gridControl.Enabled = false;
+                gridControl.Visible = false;
+                calendarPanel.Enabled = true;
+                calendarPanel.Visible = true;
+            }else
+            {
+                gridControl.Enabled = true;
+                gridControl.Visible = true;
+                calendarPanel.Enabled = false;
+                calendarPanel.Visible = false;
+            }
         }
 
         private void OcbcPasteButtonOnItemClick(object sender, ItemClickEventArgs e)
