@@ -186,7 +186,7 @@
     <None Include="Resources\Image1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Mail.xml" />
+    <EmbeddedResource Include="Resources\Mail.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

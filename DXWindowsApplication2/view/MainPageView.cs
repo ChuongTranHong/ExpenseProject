@@ -6,6 +6,7 @@ using DXWindowsApplication2.util;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Helpers;
+using DevExpress.XtraGrid;
 using DevExpress.XtraNavBar;
 
 namespace DXWindowsApplication2.view
@@ -45,25 +46,19 @@ namespace DXWindowsApplication2.view
             dbsPasteButton.ItemClick += DbsPasteButtonOnItemClick;
             var dataSource = (BindingList<Expense>)gridControl.DataSource;
             dataSource.ListChanged += HandleDataSourceChange;
-//            calendarNavBarButton.Tag = calendarPanel;
-            calendarItem.LinkClicked += CalendarItemClickHandler;
-            
+            navBarControl.ActiveGroupChanged += NavBarActiveGroupChangedHandler;
+
         }
 
-        private void CalendarItemClickHandler(object sender, NavBarLinkEventArgs e)
+        private void NavBarActiveGroupChangedHandler(object sender, NavBarGroupEventArgs e)
         {
-            if(gridControl.Enabled)
+            var caption = e.Group.Caption;
+            foreach (Control control in splitContainerControl.Panel2.Controls)
             {
-                gridControl.Enabled = false;
-                gridControl.Visible = false;
-                calendarPanel.Enabled = true;
-                calendarPanel.Visible = true;
-            }else
-            {
-                gridControl.Enabled = true;
-                gridControl.Visible = true;
-                calendarPanel.Enabled = false;
-                calendarPanel.Visible = false;
+                if (control is XtraUserControl || control is GridControl)
+                {
+                    control.Visible = control.Tag.ToString() == caption;
+                }
             }
         }
 
@@ -89,7 +84,6 @@ namespace DXWindowsApplication2.view
                 {
                     _controller.AddExpense(expense);
                 }
-
             }
         }
 
@@ -169,7 +163,6 @@ namespace DXWindowsApplication2.view
             var dataSource = (BindingList<Expense>)gridControl.DataSource;
             _controller.SaveDataFromGridToFile(dataSource);
         }
-
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Reflection;
 using DevExpress.Utils;
 using System.Windows.Forms;
 using System.IO;
@@ -44,14 +45,9 @@ namespace DXWindowsApplication2
         private static DataTable CreateDataTable(string table)
         {
             var dataSet = new DataSet();
-            string dataFile = FilesHelper.FindingFileName(Application.StartupPath, "Resources\\Mail.xml");
-            if (dataFile != string.Empty)
-            {
-                var fi = new FileInfo(dataFile);
-                dataSet.ReadXml(fi.FullName);
-                return dataSet.Tables[table];
-            }
-            return null;
+            var assembly = Assembly.GetExecutingAssembly();
+            dataSet.ReadXml(new StreamReader(assembly.GetManifestResourceStream("DXWindowsApplication2.Resources.Mail.xml")));
+            return dataSet.Tables[table];
         }
     }
     

@@ -36,8 +36,6 @@
              this.outboxItem = new DevExpress.XtraNavBar.NavBarItem();
              this.draftsItem = new DevExpress.XtraNavBar.NavBarItem();
              this.trashItem = new DevExpress.XtraNavBar.NavBarItem();
-             this.calendarItem = new DevExpress.XtraNavBar.NavBarItem();
-             this.tasksItem = new DevExpress.XtraNavBar.NavBarItem();
              this.navbarImageListLarge = new System.Windows.Forms.ImageList(this.components);
              this.navbarImageList = new System.Windows.Forms.ImageList(this.components);
              this.calendarPanel = new DXWindowsApplication2.view.Calendar();
@@ -45,6 +43,7 @@
              this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
              this.transactionGroup = new DevExpress.XtraNavBar.NavBarGroup();
              this.calendarGroup = new DevExpress.XtraNavBar.NavBarGroup();
+             this.navBarGroupControlContainer1 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
              this.navigateCalendar = new DXWindowsApplication2.view.NavigateCalendar();
              this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
              this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
@@ -125,6 +124,7 @@
              this.navBarControl.AllowSelectedLink = true;
              this.navBarControl.Dock = System.Windows.Forms.DockStyle.Top;
              this.navBarControl.EachGroupHasSelectedLink = true;
+             this.navBarControl.Controls.Add(this.navBarGroupControlContainer1);
              this.navBarControl.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.transactionGroup,
             this.calendarGroup});
@@ -132,9 +132,7 @@
             this.inboxItem,
             this.outboxItem,
             this.draftsItem,
-            this.trashItem,
-            this.calendarItem,
-            this.tasksItem});
+            this.trashItem});
              this.navBarControl.LargeImages = this.navbarImageListLarge;
              this.navBarControl.Location = new System.Drawing.Point(0, 0);
              this.navBarControl.Name = "navBarControl";
@@ -147,6 +145,14 @@
              this.navBarControl.StoreDefaultPaintStyleName = true;
              this.navBarControl.TabIndex = 0;
              this.navBarControl.Text = "navBarControl1";
+
+             //
+             // navBarGroupControlContainer1
+             //
+             this.navBarGroupControlContainer1.Controls.Add(this.navigateCalendar);
+             this.navBarGroupControlContainer1.Name = "navBarGroupControlContainer1";
+             this.navBarGroupControlContainer1.Size = new System.Drawing.Size(196, 198);
+             this.navBarGroupControlContainer1.TabIndex = 0;
              // 
              // inboxItem
              // 
@@ -171,18 +177,6 @@
              this.trashItem.Caption = "Trash";
              this.trashItem.Name = "trashItem";
              this.trashItem.SmallImageIndex = 3;
-             // 
-             // calendarItem
-             // 
-             this.calendarItem.Caption = "Calendar";
-             this.calendarItem.Name = "calendarItem";
-             this.calendarItem.SmallImageIndex = 4;
-             // 
-             // tasksItem
-             // 
-             this.tasksItem.Caption = "Tasks";
-             this.tasksItem.Name = "tasksItem";
-             this.tasksItem.SmallImageIndex = 5;
              // 
              // navbarImageListLarge
              // 
@@ -213,6 +207,7 @@
              this.calendarPanel.Size = new System.Drawing.Size(795, 429);
              this.calendarPanel.TabIndex = 1;
              this.calendarPanel.Visible = false;
+             this.calendarPanel.Tag = "Calendar";
              // 
              // gridControl
              // 
@@ -232,6 +227,7 @@
              this.gridControl.UseEmbeddedNavigator = true;
              this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+             this.gridControl.Tag = "Transactions";
              // 
              // gridView1
              // 
@@ -259,10 +255,8 @@
              this.calendarGroup.Name = "calendarGroup";
              this.calendarGroup.Caption = "Calendar";
              this.calendarGroup.Expanded = true;
+             this.calendarGroup.ControlContainer = this.navBarGroupControlContainer1;
              this.calendarGroup.GroupCaptionUseImage = DevExpress.XtraNavBar.NavBarImage.Large;
-             this.calendarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-                         new DevExpress.XtraNavBar.NavBarItemLink(this.calendarItem),
-                         new DevExpress.XtraNavBar.NavBarItemLink(this.tasksItem)});
              this.calendarGroup.LargeImage = ((System.Drawing.Image)(resources.GetObject("calendarNavBarButton.LargeImage")));
              this.calendarGroup.Name = "calendarNavBarButton";
              // 
@@ -756,6 +750,7 @@
          #endregion
 
          private DevExpress.XtraEditors.SplitContainerControl splitContainerControl;
+         private DevExpress.XtraNavBar.NavBarGroupControlContainer navBarGroupControlContainer1;
          private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
          private DevExpress.XtraBars.BarButtonItem newItemButton;
          private DevExpress.XtraBars.BarButtonItem iOpen;
@@ -802,8 +797,6 @@
          private DevExpress.XtraNavBar.NavBarItem outboxItem;
          private DevExpress.XtraNavBar.NavBarItem draftsItem;
          private DevExpress.XtraNavBar.NavBarItem trashItem;
-         private DevExpress.XtraNavBar.NavBarItem calendarItem;
-         private DevExpress.XtraNavBar.NavBarItem tasksItem;
          private System.Windows.Forms.ImageList navbarImageList;
          private System.Windows.Forms.ImageList navbarImageListLarge;
          private DevExpress.XtraGrid.GridControl gridControl;
